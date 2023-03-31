@@ -1,0 +1,207 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: Montserrat, Fraunces;
+}
+
+body {
+	font-size: 1.4rem;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	background-color: rgb(242, 235, 227);
+	padding: 30px 20px;
+}
+
+.main-container {
+	display: flex;
+	margin: 0 auto;
+	height: 600px;
+	width: 700px;
+	border-radius: 25px;
+	overflow: hidden;
+	box-shadow: 2px 2px 60px 2px rgba(60,128,103,0.3);
+}
+
+.left-side, .right-side {
+	flex: 0 1 50%;
+}
+
+/* font size */
+.product-name,
+.product-description,
+.old-price,
+.product-btn {
+	font-size: 1.6rem;
+}
+
+.current-price, .product-title {
+	font-size: 3.7rem;
+}
+
+/* left side */
+.img-container {
+	height: 100%;
+	background-image: url('images/image-product-desktop.jpg');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: 100% 100%;
+}
+
+/* right side */
+.right-side {
+	padding: 35px;
+	background-color: white;
+}
+
+.product-name {
+	margin-bottom: 20px;
+	font-weight: 400;
+	letter-spacing: 6px;
+	color: rgb(108, 114, 137);
+}
+
+.product-title {
+	font-family: Fraunces;
+	margin-bottom: 40px;
+	color: rgb(28, 35, 43);
+}
+
+.product-description {
+	line-height: 1.6;
+	margin-bottom: 40px;
+	color: rgb(108, 114, 137);
+}
+
+.product-price {
+	margin-bottom: 40px;
+}
+
+.current-price {
+	font-family: Fraunces;
+	color: rgb(60, 128, 103);
+}
+
+.old-price {
+	padding-left: 40px;
+	position: relative;
+	top: -10px;
+	text-decoration: line-through;
+	color: rgb(108, 114, 137);
+}
+
+.product-btn {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	font-weight: 700;
+	background-color: rgb(60, 128, 103);
+	color: white;
+}
+
+.product-btn:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+	background-color: #244D3E;
+}
+
+.product-btn::before {
+	content: '';
+	display: block;
+	width: 25px;
+	height: 25px;
+	background-image: url('images/icon-cart.svg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	padding-right: 20px;
+	position: relative;
+	left: -10px;
+}
+
+/* media */
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+	.main-container {
+		flex-wrap: wrap;
+		height: 700px;
+	}
+
+	.left-side, .right-side {
+		flex-basis: 100%;
+	}
+
+	.left-side {
+		height: 35%;
+	}
+
+	.right-side {
+		height: 65%;
+	}
+
+	.img-container {
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+@media (max-width: 580px) {
+	.main-container {
+		height: 550px;
+	}
+
+	.right-side {
+		padding: 20px;
+		
+	}
+
+	.product-title,
+	.product-description,
+	.product-price {
+		margin-bottom: 15px;
+	}
+
+	/* font size */
+	.product-name,
+	.product-description,
+	.old-price,
+	.product-btn {
+		font-size: 1.3rem;
+	}
+
+	.current-price, .product-title {
+		font-size: 3rem;
+	}
+
+	@media (max-width: 370px) {
+		.wrapper {
+			padding: 15px;
+		}
+
+		.main-container {
+			height: 100%;
+		}
+
+		.right-side {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 15px;
+		}
+	}
+}
