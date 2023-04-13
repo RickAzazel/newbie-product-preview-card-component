@@ -23,76 +23,68 @@ body {
 	padding: 30px 20px;
 }
 
-.main-container {
+.card {
 	display: flex;
 	margin: 0 auto;
-	height: 600px;
+	height: 550px;
 	width: 700px;
-	border-radius: 25px;
+	border-radius: 15px;
 	overflow: hidden;
-	box-shadow: 2px 2px 60px 2px rgba(60,128,103,0.3);
+	box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.075);
 }
 
-.left-side, .right-side {
+.card__image,
+.card__content {
 	flex: 0 1 50%;
 }
 
-/* font size */
-.product-name,
-.product-description,
-.old-price,
-.product-btn {
-	font-size: 1.6rem;
-}
-
-.current-price, .product-title {
+.title,
+.price__current {
 	font-size: 3.7rem;
 }
 
-/* left side */
-.img-container {
+.card__image {
 	height: 100%;
-	background-image: url('images/image-product-desktop.jpg');
+	background-image: url('./images/image-product-desktop.jpg');
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: 100% 100%;
 }
 
-/* right side */
-.right-side {
+.card__content {
 	padding: 35px;
 	background-color: white;
 }
 
-.product-name {
+.subtitle {
 	margin-bottom: 20px;
 	font-weight: 400;
 	letter-spacing: 6px;
 	color: rgb(108, 114, 137);
 }
 
-.product-title {
+.title {
 	font-family: Fraunces;
 	margin-bottom: 40px;
 	color: rgb(28, 35, 43);
 }
 
-.product-description {
+.text {
 	line-height: 1.6;
 	margin-bottom: 40px;
 	color: rgb(108, 114, 137);
 }
 
-.product-price {
+.price {
 	margin-bottom: 40px;
 }
 
-.current-price {
+.price__current {
 	font-family: Fraunces;
 	color: rgb(60, 128, 103);
 }
 
-.old-price {
+.price__old {
 	padding-left: 40px;
 	position: relative;
 	top: -10px;
@@ -100,30 +92,31 @@ body {
 	color: rgb(108, 114, 137);
 }
 
-.product-btn {
+.button {
 	width: 100%;
 	height: 60px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 20px;
+	border: none;
+	border-radius: 10px;
 	font-weight: 700;
 	background-color: rgb(60, 128, 103);
 	color: white;
 }
 
-.product-btn:hover {
+.button:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 	background-color: #244D3E;
 }
 
-.product-btn::before {
+.button::before {
 	content: '';
 	display: block;
 	width: 25px;
 	height: 25px;
-	background-image: url('images/icon-cart.svg');
+	background-image: url('./images/icon-cart.svg');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	padding-right: 20px;
@@ -131,77 +124,111 @@ body {
 	left: -10px;
 }
 
-/* media */
-@media (max-width: 1024px) {
-
-}
-
+/* tablets */
 @media (max-width: 768px) {
-	.main-container {
+
+	.title,
+	.text,
+	.price {
+		margin-bottom: 20px;
+	}
+
+	.card {
 		flex-wrap: wrap;
 		height: 700px;
 	}
 
-	.left-side, .right-side {
+	.card__image,
+	.card__content {
 		flex-basis: 100%;
 	}
 
-	.left-side {
-		height: 35%;
-	}
-
-	.right-side {
-		height: 65%;
-	}
-
-	.img-container {
+	.card__image {
+		height: 45%;
+		background: url('./images/image-product-mobile.jpg') no-repeat;
 		background-size: cover;
-		background-position: center;
-	}
-}
-
-@media (max-width: 580px) {
-	.main-container {
-		height: 550px;
 	}
 
-	.right-side {
-		padding: 20px;
-		
+	.card__content {
+		height: 55%;
+		padding: 30px;
 	}
 
-	.product-title,
-	.product-description,
-	.product-price {
-		margin-bottom: 15px;
-	}
-
-	/* font size */
-	.product-name,
-	.product-description,
-	.old-price,
-	.product-btn {
-		font-size: 1.3rem;
-	}
-
-	.current-price, .product-title {
+	.title {
 		font-size: 3rem;
 	}
 
-	@media (max-width: 370px) {
-		.wrapper {
-			padding: 15px;
-		}
+	.price {
+		text-align: center;
+	}
 
-		.main-container {
-			height: 100%;
-		}
+	.price__old {
+		padding-left: 90px;
+	}
 
-		.right-side {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			padding: 15px;
-		}
+	.button {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+
+/* mobile */
+@media (max-width: 480px) {
+	.card {
+		max-height: 600px;
+	}
+
+	.card__image {
+		height: 35%;
+	}
+
+	.card__content {
+		height: 65%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding: 25px;
+	}
+
+	.subtitle {
+		margin-bottom: 10px;
+	}
+
+	.subtitle,
+	.text,
+	.price__old,
+	.button {
+		font-size: 1.3rem;
+	}
+
+	.price {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.price__current {
+		font-size: 3rem;
+	}
+
+	.price__old {
+		position: static;
+		padding-left: 30px;
+	}
+
+	.button {
+		height: 50px;
+		width: 100%;
+	}
+}
+
+@media (max-width: 360px) {
+	.card__image {
+		height: 30%;
+	}
+
+	.card__content {
+		height: 70%;
+		padding: 15px;
 	}
 }
